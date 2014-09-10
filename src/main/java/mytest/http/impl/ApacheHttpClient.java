@@ -1,4 +1,4 @@
-package test.http.impl;
+package mytest.http.impl;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-import test.http.HttpClientException;
-import test.http.HttpClientInterface;
+import mytest.http.HttpClientException;
+import mytest.http.HttpClientInterface;
 
 
 public class ApacheHttpClient implements HttpClientInterface{

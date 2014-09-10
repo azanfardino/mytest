@@ -1,9 +1,9 @@
-package test.http;
+package mytest.http;
 
-import test.exception.AbstractTestException;
+import mytest.exception.AbstractMyTestException;
 
 
-public class HttpClientException extends AbstractTestException{
+public class HttpClientException extends AbstractMyTestException{
 
 	private static final long serialVersionUID = -2210534714310163702L;
 

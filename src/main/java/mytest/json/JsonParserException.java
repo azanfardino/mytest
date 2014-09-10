@@ -1,9 +1,9 @@
-package test.json;
+package mytest.json;
 
-import test.exception.AbstractTestException;
+import mytest.exception.AbstractMyTestException;
 
 
-public class JsonParserException extends AbstractTestException{
+public class JsonParserException extends AbstractMyTestException{
 
 	private static final long serialVersionUID = 8489548574536858885L;
 

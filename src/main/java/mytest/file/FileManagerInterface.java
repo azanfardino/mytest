@@ -1,4 +1,4 @@
-package test.file;
+package mytest.file;
 
 public interface FileManagerInterface {
 

@@ -1,9 +1,9 @@
-package test.file;
+package mytest.file;
 
-import test.exception.AbstractTestException;
+import mytest.exception.AbstractMyTestException;
 
 
-public class FileManagerException extends AbstractTestException{
+public class FileManagerException extends AbstractMyTestException{
 
 	private static final long serialVersionUID = 5238224160687935609L;
 

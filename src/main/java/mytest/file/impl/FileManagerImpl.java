@@ -1,12 +1,12 @@
-package test.file.impl;
+package mytest.file.impl;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import test.file.FileManagerException;
-import test.file.FileManagerInterface;
+import mytest.file.FileManagerException;
+import mytest.file.FileManagerInterface;
 
 public class FileManagerImpl implements FileManagerInterface{
 	

@@ -1,4 +1,4 @@
-package test.json;
+package mytest.json;
 
 public interface JsonParserInterface{
 	

@@ -1,4 +1,4 @@
-package test;
+package mytest;
 
 public class Main {
 
@@ -6,7 +6,7 @@ public class Main {
 		
 		validateArgs(args);
 
-		new Test().start(args);
+		new MyTest().start(args);
 		
 	}
 

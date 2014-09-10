@@ -1,14 +1,14 @@
-package test;
+package mytest;
 
-import test.exception.AbstractTestException;
-import test.file.FileManagerInterface;
-import test.file.impl.FileManagerImpl;
-import test.http.HttpClientInterface;
-import test.http.impl.ApacheHttpClient;
-import test.json.JsonParserInterface;
-import test.json.impl.GoogleJsonSimpleParser;
+import mytest.exception.AbstractMyTestException;
+import mytest.file.FileManagerInterface;
+import mytest.file.impl.FileManagerImpl;
+import mytest.http.HttpClientInterface;
+import mytest.http.impl.ApacheHttpClient;
+import mytest.json.JsonParserInterface;
+import mytest.json.impl.GoogleJsonSimpleParser;
 
-public class Test {
+public class MyTest {
 
 	private static final String FILE_PATH = "result.csv";
 	
@@ -24,7 +24,7 @@ public class Test {
 			
 			storeResource(res);
 			
-		} catch(AbstractTestException e){
+		} catch(AbstractMyTestException e){
 			
 			System.out.println("Unable to execute test");
 			
@@ -36,7 +36,7 @@ public class Test {
 	
 
 
-	private String getResource(String[] args) throws AbstractTestException{
+	private String getResource(String[] args) throws AbstractMyTestException{
 		
 		HttpClientInterface httpClient;
 		
@@ -54,7 +54,7 @@ public class Test {
 	}
 	
 	
-	private String parseResource(String resource)  throws AbstractTestException {
+	private String parseResource(String resource)  throws AbstractMyTestException {
 		
 		JsonParserInterface jsonParser = new GoogleJsonSimpleParser();
 		
@@ -63,7 +63,7 @@ public class Test {
 	
 	
 
-	private void storeResource(String res)  throws AbstractTestException{
+	private void storeResource(String res)  throws AbstractMyTestException{
 			
 		FileManagerInterface fileManager = new FileManagerImpl(FILE_PATH);
 		

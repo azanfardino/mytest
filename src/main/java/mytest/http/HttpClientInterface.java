@@ -1,4 +1,4 @@
-package test.http;
+package mytest.http;
 
 public interface HttpClientInterface {
 

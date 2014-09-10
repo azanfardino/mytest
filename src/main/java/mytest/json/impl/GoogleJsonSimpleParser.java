@@ -1,4 +1,4 @@
-package test.json.impl;
+package mytest.json.impl;
 
 import java.util.Iterator;
 
@@ -7,8 +7,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import test.json.JsonParserException;
-import test.json.JsonParserInterface;
+import mytest.json.JsonParserException;
+import mytest.json.JsonParserInterface;
 
 public class GoogleJsonSimpleParser implements JsonParserInterface{
 
