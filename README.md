@@ -5,7 +5,7 @@ The project is based on Apache Maven.
 
 The entry point is the class mytest.Main.
 
-The class provides for the cases you need to use an http proxy or not.
+The class provides for both the cases you need to use an http proxy or not.
 
 ---------------
 Usage:
