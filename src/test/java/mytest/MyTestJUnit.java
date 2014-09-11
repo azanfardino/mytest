@@ -24,7 +24,7 @@ public class MyTestJUnit {
 	@Before
 	public void initProxy(){
 
-	//TODO uncomment  if you need to use an http proxy	
+	//TODO uncomment  if you need to set http proxy	
 //		useProxy = true;
 //		
 //		host = "xxx.xxx.xxx.xxx";
