@@ -21,12 +21,14 @@ public class FileManagerImpl implements FileManagerInterface{
 	
 	@Override
 	public void cleanFile() throws FileManagerException{
+		System.out.println("Cleaning file...");
 		writeToFile("");
 	}
 	
 	
 	@Override
 	public void writeFile(String content) throws FileManagerException{
+		System.out.println("Writing file...");
 		writeToFile(content);
 	}
 	
