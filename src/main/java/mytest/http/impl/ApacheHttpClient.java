@@ -29,10 +29,10 @@ public class ApacheHttpClient implements HttpClientInterface{
 		this.url = url;
 	}
 	
-	public ApacheHttpClient(String url, String host, String port){
+	public ApacheHttpClient(String url, String host, int port){
 		this(url);
 		this.host = host;
-		this.port = Integer.parseInt(port);
+		this.port = port;
 		this.useProxy = true;
 	}
 	

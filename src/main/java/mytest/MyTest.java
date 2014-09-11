@@ -1,23 +1,47 @@
 package mytest;
 
 import mytest.exception.AbstractMyTestException;
+import mytest.factory.MyTestAbstractFactory;
+import mytest.factory.impl.MyTestAbstractFactoryImpl;
 import mytest.file.FileManagerInterface;
-import mytest.file.impl.FileManagerImpl;
 import mytest.http.HttpClientInterface;
-import mytest.http.impl.ApacheHttpClient;
 import mytest.json.JsonParserInterface;
-import mytest.json.impl.GoogleJsonSimpleParser;
 
 public class MyTest {
 
-	private static final String FILE_PATH = "result.csv";
+	public static final String FILE_PATH = "result.csv";
 	
 	private static final String BASE_URL = "http://api.goeuro.com/api/v2/position/suggest/en/";
+	
+	private MyTestAbstractFactory abstractFactory;
+	
+	private HttpClientInterface httpClient;
+	
+	private JsonParserInterface jsonParser;
+	
+	private FileManagerInterface fileManager;
+	
+	
+	
+	public MyTest() {
+		init();
+	}
+	
+	
+	private void init() {
+		abstractFactory = new MyTestAbstractFactoryImpl();	
+		
+		jsonParser = abstractFactory.createJasonParser();
+		
+		fileManager = abstractFactory.createFileManager(FILE_PATH);
+	}
+
 
 	public void start(String[] args){
 		
 		try{
-		
+			clean();
+			
 			String res = getResource(args);			
 			
 			res = parseResource(res);
@@ -26,7 +50,13 @@ public class MyTest {
 			
 		} catch(AbstractMyTestException e){
 			
-			System.out.println("Unable to execute test");
+			System.out.println("Error executing test");
+			
+			e.printStackTrace();
+			
+		} catch(Exception e){
+			
+			System.out.println("Unexpected error executing test");
 			
 			e.printStackTrace();
 		} 
@@ -36,18 +66,15 @@ public class MyTest {
 	
 
 
-	private String getResource(String[] args) throws AbstractMyTestException{
-		
-		HttpClientInterface httpClient;
+	private String getResource(String[] args) throws AbstractMyTestException{		
 		
 		String url = BASE_URL + args[0];
 		
 		if (args.length == 1){
-			httpClient = new ApacheHttpClient(url);
+			httpClient = abstractFactory.createHTTPClient(url);
 		}else{
-			httpClient = new ApacheHttpClient(url, args[1], args[2]);
+			httpClient = abstractFactory.createHTTPClient(url, args[1], Integer.parseInt(args[2]));
 		}
-		
 		
 		return httpClient.get();
 		
@@ -56,18 +83,21 @@ public class MyTest {
 	
 	private String parseResource(String resource)  throws AbstractMyTestException {
 		
-		JsonParserInterface jsonParser = new GoogleJsonSimpleParser();
-		
 		return jsonParser.parseToCSV(resource);
 	}
 	
 	
 
 	private void storeResource(String res)  throws AbstractMyTestException{
-			
-		FileManagerInterface fileManager = new FileManagerImpl(FILE_PATH);
 		
 		fileManager.writeFile(res);
+		
+	}
+	
+	
+	private void clean()  throws AbstractMyTestException{
+		
+		fileManager.cleanFile();
 		
 	}
 

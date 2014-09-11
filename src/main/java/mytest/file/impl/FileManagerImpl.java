@@ -17,8 +17,20 @@ public class FileManagerImpl implements FileManagerInterface{
 	}
 	
 	
-
+	
+	
+	@Override
+	public void cleanFile() throws FileManagerException{
+		writeToFile("");
+	}
+	
+	
+	@Override
 	public void writeFile(String content) throws FileManagerException{
+		writeToFile(content);
+	}
+	
+	private void writeToFile(String content) throws FileManagerException{
 		try {
 
 			if (!file.exists()) {
